@@ -1,2 +1,2 @@
-# Crayon_Cloud_Sales_System
+# Crayon Cloud Sales System
 Cloud Sales System Technical Exercise
