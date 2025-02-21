@@ -24,8 +24,4 @@
     <ProjectReference Include="..\Crayon.CSS.Application\Crayon.CSS.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>

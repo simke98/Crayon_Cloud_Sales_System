@@ -1,5 +1,6 @@
 ﻿using Crayon.CSS.Api.Extensions;
 using Crayon.CSS.Persistence;
+using Crayon.CSS.Service;
 using Microsoft.EntityFrameworkCore;
 
 namespace Crayon.CSS.Api;
@@ -19,6 +20,9 @@ public class Startup
         services.AddDbContext<CSSDBContext>(opts =>
             opts.UseSqlServer(Configuration.GetConnectionString("CLOUD_SALES_SYSTEM_DB")));
 
+
+        services.AddServices();
+        services.AddRepositories();
         services.AddSwaggerSettings();
         services.AddHttpClient();
         services.AddCors(options =>
@@ -49,6 +53,8 @@ public class Startup
             app.UseHsts();
         }
 
+        app.UseCustomExceptionMiddleware();
+
         app.UseHttpsRedirection();
         app.UseRouting();
         app.UseCors("AllowAll");
@@ -57,13 +63,6 @@ public class Startup
             endpoints.MapControllers();
         });
 
-
-        app.UseSwagger();
-        app.UseSwaggerUI(c =>
-        {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cloud Sales System API v1");
-            c.DocumentTitle = "Cloud Sales System Swagger";
-        });
-
+        app.UseSwaggerSettings();
     }
 }
