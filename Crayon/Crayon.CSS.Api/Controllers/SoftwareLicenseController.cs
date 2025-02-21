@@ -15,6 +15,14 @@ public class SoftwareLicenseController : ControllerBase
         _softwareLicenseService = softwareLicenseService;
     }
 
+    [HttpPost("{accountId:guid}/order")]
+    public async Task<ActionResult> OrderSoftwareLicense([FromRoute] Guid accountId, [FromBody] SoftwareLicenseCreate request)
+    {
+        var id = await _softwareLicenseService.OrderSoftwareLicense(accountId, request); 
+        return Ok(id);
+    }
+
+
 
     [HttpPut("{id:guid}")]
     public async Task<ActionResult> Update([FromRoute] Guid id, [FromBody] SoftwareLicenseUpdate request)
