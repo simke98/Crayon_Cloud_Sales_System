@@ -5,4 +5,5 @@ namespace Crayon.CSS.Application.Repositories;
 public interface ICustomerRepository : IRepositoryBase<Customer>
 {
     Task<Customer> GetCustomerByIdAsync(Guid id);
+    Task<ICollection<Account>> GetAccountByCustomerIdAsync(Guid id);
 }

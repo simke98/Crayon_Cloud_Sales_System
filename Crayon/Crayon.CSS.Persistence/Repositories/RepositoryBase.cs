@@ -23,9 +23,11 @@ public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
         return DbContext.Set<T>().Where(expression).AsNoTracking();
     }
 
-    public void Create(T entity)
+    public async Task<T> Create(T entity)
     {
-        DbContext.Set<T>().Add(entity);
+        var result = await DbContext.Set<T>().AddAsync(entity);
+        await DbContext.SaveChangesAsync();
+        return result.Entity;
     }
 
     public void Update(T entity)

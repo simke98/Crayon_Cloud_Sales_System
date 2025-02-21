@@ -8,4 +8,5 @@ namespace Crayon.CSS.Application.Mapper;
 public static partial class MapperlyMappings
 {
     public static partial CustomerModel ToDtoModel(this Customer source);
+    public static partial AccountModel ToDtoModel(this Account source);
 }
