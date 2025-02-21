@@ -9,4 +9,7 @@ public static partial class MapperlyMappings
 {
     public static partial CustomerModel ToDtoModel(this Customer source);
     public static partial AccountModel ToDtoModel(this Account source);
+    
+    [MapProperty(nameof(SoftwareLicense.Account.Name), nameof(SoftwareLicenseModel.AccountName))]
+    public static partial SoftwareLicenseModel ToDtoModel(this SoftwareLicense source);
 }

@@ -40,15 +40,21 @@ public class ExceptionMiddleware
             case NotFoundException ex:
                 statusCode = (int)HttpStatusCode.NotFound;
                 message = exception.Message;
-                errorCode = ex.ErrorCode; 
+                errorCode = ex.ErrorCode;
                 break;
+            case UpdateException ex:
+                statusCode = (int)HttpStatusCode.BadRequest;
+                message = exception.Message;
+                errorCode = ex.ErrorCode;
+                break;
+
         }
 
         await context.Response.WriteAsync(new ErrorDetails()
         {
             StatusCode = statusCode,
             Message = message,
-            ErrorCode = errorCode   
+            ErrorCode = errorCode
         }.ToString() ?? string.Empty);
     }
 }

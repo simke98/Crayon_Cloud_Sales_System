@@ -13,7 +13,9 @@ public class CustomerRepository : RepositoryBase<Customer>, ICustomerRepository
 
     public async Task<ICollection<Account>> GetAccountByCustomerIdAsync(Guid id)
     {
-        var customer = await FindByCondition(c => c.Id.Equals(id)).Include(c => c.Accounts).FirstOrDefaultAsync();
+        var customer = await FindByCondition(c => c.Id.Equals(id))
+            .Include(c => c.Accounts)
+            .ThenInclude(a => a.SoftwareLicenses).FirstOrDefaultAsync();
 
         return customer.Accounts;
     }

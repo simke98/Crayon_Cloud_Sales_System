@@ -10,6 +10,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddScoped<ICustomerService, CustomerService>();
         services.AddScoped<IAccountService, AccountService>();
+        services.AddScoped<ISoftwareLicenseService, SoftwareLicenseService>();
         services.AddScoped<ICCPService, CCPService>();
     }
 }

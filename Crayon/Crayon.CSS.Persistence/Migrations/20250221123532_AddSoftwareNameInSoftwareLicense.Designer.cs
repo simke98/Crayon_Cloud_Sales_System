@@ -4,6 +4,7 @@ using Crayon.CSS.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Crayon.CSS.Persistence.Migrations
 {
     [DbContext(typeof(CSSDBContext))]
-    partial class CSSDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250221123532_AddSoftwareNameInSoftwareLicense")]
+    partial class AddSoftwareNameInSoftwareLicense
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

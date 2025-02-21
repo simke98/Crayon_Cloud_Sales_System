@@ -30,9 +30,10 @@ public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
         return result.Entity;
     }
 
-    public void Update(T entity)
+    public async Task Update(T entity)
     {
         DbContext.Set<T>().Update(entity);
+        await DbContext.SaveChangesAsync();
     }
 
     public void Delete(T entity)

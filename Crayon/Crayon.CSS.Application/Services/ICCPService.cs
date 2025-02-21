@@ -1,15 +1,9 @@
 ﻿using Crayon.CSS.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Crayon.CSS.Application.Services
+namespace Crayon.CSS.Application.Services;
+
+public interface ICCPService
 {
-    public interface ICCPService
-    {
-
-        ICollection<SoftwareService> GetAvailableService();
-    }
+    ICollection<SoftwareService> GetAvailableService();
+    bool IsAvailable(string name, int quantity);
 }

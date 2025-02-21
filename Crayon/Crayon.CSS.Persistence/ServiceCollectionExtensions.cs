@@ -10,5 +10,6 @@ public static class ServiceCollectionExtensions
     {
         services.AddScoped<ICustomerRepository, CustomerRepository>();
         services.AddScoped<IAccountRepository, AccountRepository>();
+        services.AddScoped<ISoftwareLicenseRepository, SoftwareLicenseRepository>();   
     }
 }
